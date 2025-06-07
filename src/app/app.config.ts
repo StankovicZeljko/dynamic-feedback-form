@@ -6,13 +6,15 @@ import { provideEffects } from '@ngrx/effects';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { tenantInterceptor } from './core/interceptors/tenant.interceptor';
+import { formReducer } from './store/form/form.reducer';
+import { FormEffects } from './store/form/form.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     importProvidersFrom(ReactiveFormsModule),
-    provideStore(),
-    provideEffects(),
+    provideStore({form: formReducer}),
+    provideEffects([FormEffects]),
     provideHttpClient(withInterceptors([tenantInterceptor])),
     provideStoreDevtools({
       maxAge: 25,
