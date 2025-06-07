@@ -22,6 +22,10 @@ export class TenantService {
 
 
   private getTenantIdFromEnvironment(): string {
-    return 'demo-tenant'; 
+    return 'demo-tenant';
+  }
+
+  getCurrentTenantId(): string {
+    return this.tenantIdSubject.value;
   }
 }

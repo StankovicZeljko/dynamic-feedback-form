@@ -3,8 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { tenantInterceptor } from './core/interceptors/tenant.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(ReactiveFormsModule),
     provideStore(),
     provideEffects(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([tenantInterceptor])),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: environment.production,
