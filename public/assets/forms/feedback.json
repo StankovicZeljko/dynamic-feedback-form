@@ -1,0 +1,90 @@
+{
+    "id": "customer-feedback",
+    "title": "Kundenfeedback",
+    "description": "Teilen Sie uns Ihre Erfahrungen mit!",
+    "submitButtonText": "Feedback senden",
+    "fields": [
+        {
+            "id": "name",
+            "type": "text",
+            "label": "Name",
+            "placeholder": "Ihr Name",
+            "required": true,
+            "validators": [
+                {
+                    "type": "required",
+                    "message": "Name ist erforderlich"
+                },
+                {
+                    "type": "minLength",
+                    "value": 2,
+                    "message": "Name muss mindestens 2 Zeichen lang sein"
+                }
+            ]
+        },
+        {
+            "id": "email",
+            "type": "email",
+            "label": "E-Mail",
+            "placeholder": "Ihre E-Mail-Adresse",
+            "required": true,
+            "validators": [
+                {
+                    "type": "required",
+                    "message": "E-Mail ist erforderlich"
+                },
+                {
+                    "type": "email",
+                    "message": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+                }
+            ]
+        },
+        {
+            "id": "feedback",
+            "type": "textarea",
+            "label": "Ihr Feedback",
+            "placeholder": "Bitte teilen Sie uns Ihre Meinung mit",
+            "required": true,
+            "validators": [
+                {
+                    "type": "required",
+                    "message": "Feedback ist erforderlich"
+                }
+            ]
+        },
+        {
+            "id": "rating",
+            "type": "select",
+            "label": "Bewertung",
+            "options": [
+                {
+                    "value": "1",
+                    "label": "Sehr schlecht"
+                },
+                {
+                    "value": "2",
+                    "label": "Schlecht"
+                },
+                {
+                    "value": "3",
+                    "label": "Okay"
+                },
+                {
+                    "value": "4",
+                    "label": "Gut"
+                },
+                {
+                    "value": "5",
+                    "label": "Sehr gut"
+                }
+            ],
+            "required": true,
+            "validators": [
+                {
+                    "type": "required",
+                    "message": "Bitte wählen Sie eine Bewertung aus"
+                }
+            ]
+        }
+    ]
+}

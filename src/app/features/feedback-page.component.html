@@ -1,0 +1,14 @@
+@if (loading$ | async) {
+  <div>Lade Formular...</div>
+}
+@if (error$ | async; as error) {
+  <div>Fehler: {{ error }}</div>
+}
+@if (formConfig$ | async; as config) {
+  <app-dynamic-form
+    [config]="config"
+    [formData]="formData$ | async"
+    (formChange)="onFormChange($event)"
+    (formSubmit)="onFormSubmit($event)">
+  </app-dynamic-form>
+}
